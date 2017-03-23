@@ -1,3 +1,6 @@
+//package fileshare;
+package chats;
+
 import java.net.*;
 import java.io.*;
 public class fileserver extends javax.swing.JFrame {
@@ -17,7 +20,7 @@ jLabel1.setVisible(false);
 this.setSize(600,200);
 try
 {
-ss=new ServerSocket(5050);
+ss=new ServerSocket(404);                                                                  //port n ip selection
 System.out.println("Hmmm, No problem with Server");
 conn();
 }
@@ -26,7 +29,7 @@ catch(Exception e){}
 
 @SuppressWarnings("unchecked")
 // //GEN-BEGIN:initComponents
-private void initComponents() {
+public void initComponents() {
 
 jFileChooser1 = new javax.swing.JFileChooser();
 jButton1 = new javax.swing.JButton();
@@ -100,12 +103,12 @@ layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
 pack();
 }// //GEN-END:initComponents
 
-private void jFileChooser2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFileChooser2ActionPerformed
+public void jFileChooser2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFileChooser2ActionPerformed
 if(jFileChooser2.CANCEL_OPTION==1)
 {
 jFileChooser2.setVisible(false);
 this.setSize(600, 200);
-jButton1.setEnabled(true);
+//jButton1.setsEnabled(true);
 jButton2.setVisible(false);
 }
 fadd=jFileChooser2.getSelectedFile();
@@ -139,10 +142,10 @@ doit();
 public static void main(String args[]) {
 java.awt.EventQueue.invokeLater(new Runnable() {
 public void run() {
-new fileserver();
+
 }
 });
-
+new chats.chat_server();
 }
 void doit(){
 try{
