@@ -6,8 +6,8 @@ import java.io.*;
 public class fileserver extends javax.swing.JFrame {
 
 /** Creates new form fileserver */
-ServerSocket  ss;
-Socket s;
+ServerSocket  ss1;
+Socket s1;
 File fadd;
 public fileserver() {
 initComponents();
@@ -20,7 +20,7 @@ jLabel1.setVisible(false);
 this.setSize(600,200);
 try
 {
-ss=new ServerSocket(404);                                                                  //port n ip selection
+ss1=new ServerSocket(404);                                                                  //port n ip selection
 System.out.println("Hmmm, No problem with Server");
 conn();
 }
@@ -37,16 +37,16 @@ jButton2 = new javax.swing.JButton();
 jFileChooser2 = new javax.swing.JFileChooser();
 jProgressBar1 = new javax.swing.JProgressBar();
 jLabel1 = new javax.swing.JLabel();
+//chats.chat_server();
+//setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+setTitle("File Sharing (Server)");
 
-setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-setTitle("Sharing_NITD (Server)");
-
-jButton1.setText("Select File");
+/*jButton1.setText("Select File");
 jButton1.addActionListener(new java.awt.event.ActionListener() {
 public void actionPerformed(java.awt.event.ActionEvent evt) {
 jButton1ActionPerformed(evt);
 }
-});
+});*/
 
 jButton2.setText("Send");
 jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -149,6 +149,7 @@ new chats.chat_server();
 }
 void doit(){
 try{
+    jLabel1.setText("Sending : ");
 jProgressBar1.setValue(10);
 byte [] mybytearray  = new byte [(int)fadd.length()];
 
@@ -156,7 +157,7 @@ FileInputStream fis = new FileInputStream(fadd);
 BufferedInputStream bis = new BufferedInputStream(fis);
 
 bis.read(mybytearray,0,mybytearray.length);
-OutputStream os = s.getOutputStream();
+OutputStream os = s1.getOutputStream();
 jProgressBar1.setValue(20);
 ObjectOutputStream snd=new ObjectOutputStream(os);
 jProgressBar1.setValue(30);
@@ -165,6 +166,7 @@ System.out.println("Sending…");
 jProgressBar1.setValue(40);
 m.setarray(mybytearray);
 jProgressBar1.setValue(50);
+
 m.setname(fadd.getName());
 jProgressBar1.setValue(70);
 
@@ -172,15 +174,19 @@ snd.writeObject(m);
 snd.flush();
 System.out.println("Done…");
 jProgressBar1.setValue(100);
+jLabel1.setText("Sent! ");
+
+jProgressBar1.setVisible(true);
+
 }
 catch(Exception i){
-System.out.println("\nNa Re Nai Hua!!!!");
+System.out.println("\nFailed!!!!");
 }
 }
 void conn(){
 try{
 System.out.println("Pending request (Server)");
-s=ss.accept();
+s1=ss1.accept();
 }
 catch(Exception e){
 System.out.println("Error in connection"+e);}
@@ -194,7 +200,7 @@ private javax.swing.JLabel jLabel1;
 private javax.swing.JProgressBar jProgressBar1;
 // End of variables declaration//GEN-END:variables
 }
-class msg implements Serializable
+/*class msg implements Serializable
 {
 boolean flag;
 int size;
@@ -224,3 +230,4 @@ return(name);
 }
 }
 
+*/

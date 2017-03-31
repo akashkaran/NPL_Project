@@ -11,15 +11,16 @@ public class fileclient extends javax.swing.JFrame {
 File fadd;
 BufferedOutputStream bos;
 ObjectInputStream recv;
-Socket  s;
+Socket  s1;
 public fileclient() {
+    
 initComponents();
 this.setVisible(true);
 this.pack();
 jLabel1.setText("Waiting");
 this.setSize(400, 200);
 try{
-s=new Socket("127.0.0.1",404);                                                          //port n ip selection
+s1=new Socket("127.0.0.1",404);                                                          //port n ip selection  192.168.43.180
 }
 catch(Exception e){
 System.out.println(""+e);
@@ -29,12 +30,12 @@ service();
 
 @SuppressWarnings("unchecked")
 // //GEN-BEGIN:initComponents
-private void initComponents() {
+public void initComponents() {
 
 jLabel1 = new javax.swing.JLabel();
 
-setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-setTitle("Sharing_NITD (Client)");
+//setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+setTitle("File  Sharing (Client)");
 
 jLabel1.setText("File Recieved…");
 
@@ -70,7 +71,7 @@ void service(){
 int size = 10000000;
 byte [] barr  = new byte [size];
 try{
-InputStream is = s.getInputStream();
+InputStream is = s1.getInputStream();
 
 recv=new ObjectInputStream(is);
 msg m= new msg();
@@ -92,10 +93,15 @@ this.setSize(600,400);
 JFileChooser fc=new JFileChooser();
 fc.setFileSelectionMode(JFileChooser.FILES_ONLY);
 int x=fc.showSaveDialog(this);
+try{
 if(x== JFileChooser.CANCEL_OPTION || x ==JFileChooser.ABORT){
 jLabel1.setText("## Operation Aborted by User ##");
 this.setSize(400,200);
 return;
+}
+}
+catch(Exception e){
+    
 }
 jLabel1.setText("Saved As : " +fc.getSelectedFile());
 fadd=fc.getSelectedFile();

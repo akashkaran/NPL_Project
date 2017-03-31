@@ -47,7 +47,7 @@ public class chat_server extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
-
+        setTitle("Chat (Server)");
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         msg_area.setEditable(false);
@@ -152,12 +152,14 @@ public class chat_server extends javax.swing.JFrame {
     }//GEN-LAST:event_msg_sendActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-     new chats.fileserver();
-    
+     
+        new chats.fileserver();     // initialize
+   // initComponents();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         new chats.fileclient();
+        
         
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -197,7 +199,7 @@ public class chat_server extends javax.swing.JFrame {
         });
         String msgin ="";
         try{
-            ss=new ServerSocket(4500);                                             //port n ip selection
+            ss=new ServerSocket(4040);                                             //port n ip selection
             s=ss.accept();
             
             din=new DataInputStream(s.getInputStream());

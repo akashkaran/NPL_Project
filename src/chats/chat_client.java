@@ -7,6 +7,7 @@ package chats;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
+import java.net.InetAddress;
 import java.net.Socket;
 
 
@@ -43,7 +44,7 @@ public class chat_client extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
-
+		setTitle("Chat(Client)");
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(102, 102, 102));
 
@@ -181,7 +182,7 @@ public class chat_client extends javax.swing.JFrame {
             }
         });
         try{
-            s=new Socket("127.0.0.1",4500);                                               //port n ip selection
+            s=new Socket(InetAddress.getByName("DESKTOP-U926MFV"),4040);                                               //port n ip selection
             din=new DataInputStream(s.getInputStream());
             dout=new DataOutputStream(s.getOutputStream());
             String msgin="";
