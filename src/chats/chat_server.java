@@ -47,8 +47,9 @@ public class chat_server extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
-        setTitle("Chat (Server)");
+		setTitle("Chat");
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setLocation(new java.awt.Point(900, 150));
 
         msg_area.setEditable(false);
         msg_area.setColumns(20);

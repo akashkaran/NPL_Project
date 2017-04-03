@@ -39,7 +39,7 @@ jProgressBar1 = new javax.swing.JProgressBar();
 jLabel1 = new javax.swing.JLabel();
 //chats.chat_server();
 //setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-setTitle("File Sharing (Server)");
+setTitle("Sender");
 
 jButton1.setText("Select File");
 jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -149,8 +149,8 @@ new chats.chat_server();
 }
 void doit(){
 try{
-    jLabel1.setText("Sending : ");
-jProgressBar1.setValue(10);
+    
+jProgressBar1.setValue(0);
 byte [] mybytearray  = new byte [(int)fadd.length()];
 
 FileInputStream fis = new FileInputStream(fadd);
@@ -158,10 +158,11 @@ BufferedInputStream bis = new BufferedInputStream(fis);
 
 bis.read(mybytearray,0,mybytearray.length);
 OutputStream os = s1.getOutputStream();
-jProgressBar1.setValue(20);
+jProgressBar1.setValue(0);
 ObjectOutputStream snd=new ObjectOutputStream(os);
-jProgressBar1.setValue(30);
+jProgressBar1.setValue(0);
 msg m=new msg();
+jLabel1.setText("Sending : ");
 System.out.println("Sending…");
 jProgressBar1.setValue(40);
 m.setarray(mybytearray);
@@ -180,6 +181,7 @@ jProgressBar1.setVisible(true);
 
 }
 catch(Exception i){
+    jLabel1.setText("Failed!");
 System.out.println("\nFailed!!!!");
 }
 }

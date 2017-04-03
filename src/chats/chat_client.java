@@ -44,9 +44,10 @@ public class chat_client extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
-		setTitle("Chat(Client)");
+		setTitle("Chat");
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(102, 102, 102));
+        setLocation(new java.awt.Point(100, 150));
 
         msg_area.setEditable(false);
         msg_area.setColumns(20);
