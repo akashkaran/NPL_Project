@@ -41,12 +41,12 @@ jLabel1 = new javax.swing.JLabel();
 //setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 setTitle("File Sharing (Server)");
 
-/*jButton1.setText("Select File");
+jButton1.setText("Select File");
 jButton1.addActionListener(new java.awt.event.ActionListener() {
 public void actionPerformed(java.awt.event.ActionEvent evt) {
 jButton1ActionPerformed(evt);
 }
-});*/
+});
 
 jButton2.setText("Send");
 jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -108,12 +108,12 @@ if(jFileChooser2.CANCEL_OPTION==1)
 {
 jFileChooser2.setVisible(false);
 this.setSize(600, 200);
-//jButton1.setsEnabled(true);
+jButton1.setEnabled(true);
 jButton2.setVisible(false);
 }
 fadd=jFileChooser2.getSelectedFile();
 jButton2.setVisible(true);
-//jButton1.setVisible(false);
+jButton1.setVisible(false);
 if((fadd==null)||(fadd.getName().equals("")))
 {
 jFileChooser2.setVisible(false);

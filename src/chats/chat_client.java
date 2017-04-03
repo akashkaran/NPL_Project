@@ -182,7 +182,7 @@ public class chat_client extends javax.swing.JFrame {
             }
         });
         try{
-            s=new Socket(InetAddress.getByName("DESKTOP-U926MFV"),4040);                                               //port n ip selection
+            s=new Socket("127.0.0.1",4040);                                               //port n ip selection
             din=new DataInputStream(s.getInputStream());
             dout=new DataOutputStream(s.getOutputStream());
             String msgin="";
